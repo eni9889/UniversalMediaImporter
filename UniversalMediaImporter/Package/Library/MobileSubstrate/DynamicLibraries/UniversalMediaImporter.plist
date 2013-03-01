@@ -6,6 +6,8 @@
 	<dict>
 		<key>Bundles</key>
 		<array>
+			<string>com.softwareline.youtubealternativepro</string>
+			<string>com.softwareline.youtubealternative</string>
 			<string>com.unlimapps.unlimdownloads</string>
 			<string>com.hianzinjong.Downloads</string>
 			<string>com.hianzinjong.Downloads-Lite</string>

@@ -1,14 +1,12 @@
-Package: com.unlimapps.UniversalMediaImporter
+Homepage: http://moreinfo.thebigboss.org/moreinfo/depiction.php?file=universalmediaimporterDp
+Depiction: http://moreinfo.thebigboss.org/moreinfo/depiction.php?file=universalmediaimporterDp
+Author: UnlimApps Inc. <support@unlimapps.com>
+Maintainer: BigBoss <bigboss@thebigboss.org>
 Name: UniversalMediaImporter
-Version: 1.0-1
-Description: UniversalMediaImporter is a MobileSubstrate extension that allows you to import media files (mp4,m4v,mp3,m4r) to iTunes from your favorite app store apps! You can now import movies, tv-shows, songs and ringtones from the apps you use the most!
-Section: Utilities
+Package: com.unlimapps.universalmediaimporter
 Depends: firmware (>= 5.0), mobilesubstrate, co.cocoanuts.gremlin
-Priority: optional
+Section: Tweaks
+Version: 1.0-2
 Architecture: iphoneos-arm
-Author: UnlimApps Inc.
-dev: UnlimApps Inc.
-Homepage: http://unlimapps.com
-Depiction: 
-Maintainer:
-
+Description: import media files (mp4,m4v,mp3,m4r) from your favorite app store apps
+dev: i4iphones

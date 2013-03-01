@@ -1,5 +1,6 @@
 
 // Logos by Dustin Howett
+// UniversalMediaImporter by UnlimApps Inc.
 // See http://iphonedevwiki.net/index.php/Logos
 #import "CaptainHook/CaptainHook.h"
 #import <Gremlin/Gremlin.h>
@@ -279,6 +280,64 @@ void beginImportForFileWithCustomInfo(NSDictionary *info)
     {
         [info setValue:mediaKindForExtension(extension) forKey:@"mediaKind"];
         beginImportForFileWithCustomInfo(info);
+    }
+    return;
+}
+%end
+
+%hook YCCacheListViewController
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    %log;
+    __unsafe_unretained NSObject *folder = [self valueForKeyPath:@"_folder"];
+    __unsafe_unretained NSMutableOrderedSet *videos = [folder performSelector:@selector(videos)];
+    
+    int count = [videos count];
+    id video = [videos objectAtIndex:((count -1) - indexPath.row)];
+    
+    NSString *videosDirectory = [(NSString*)[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0] stringByAppendingPathComponent:@"videos"];
+    NSString *extension = [video extension];
+    NSString *videoID = [video videoID];
+    NSString *filePath  = [videosDirectory stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.%@",videoID,extension]];
+    
+    __block NSMutableDictionary *info = [[NSMutableDictionary alloc] init];
+    [info setValue:filePath forKey:@"path"];
+    
+    if([extension isEqualToString:@"mp4"] || [extension isEqualToString:@"m4v"])
+    {
+        
+        RIButtonItem *importItem = [RIButtonItem item];
+        importItem.label = @"Add To iPod";
+        importItem.action = ^
+        {
+            [info setValue:@"feature-movie" forKey:@"mediaKind"];
+            beginImportForFileWithCustomInfo(info);
+        };
+        
+        RIButtonItem *playItem = [RIButtonItem item];
+        playItem.label = @"Play";
+        playItem.action = ^
+        {
+            %orig;
+        };
+        
+        RIButtonItem *cancelItem = [RIButtonItem item];
+        cancelItem.label = @"Cancel";
+        cancelItem.action = ^
+        {
+            
+        };
+        
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"What would you like to do?"
+                                                        message:nil
+                                               cancelButtonItem:cancelItem
+                                               otherButtonItems:importItem,playItem, nil];
+        [alert show];
+    }
+    else
+    {
+         %orig;
     }
     return;
 }
