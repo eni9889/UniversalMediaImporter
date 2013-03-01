@@ -1,0 +1,6 @@
+[submodule "Vendors/BButton"]
+	path = Vendors/BButton
+	url = https://github.com/mattlawer/BButton.git
+[submodule "Vendors/UIAlertView-Blocks"]
+	path = Vendors/UIAlertView-Blocks
+	url = https://github.com/jivadevoe/UIAlertView-Blocks.git

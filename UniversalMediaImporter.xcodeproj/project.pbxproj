@@ -1,0 +1,444 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		47EAF6BA16E00E1E00767B56 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 47EAF6B916E00E1E00767B56 /* Foundation.framework */; };
+		47EAF6C516E00E1E00767B56 /* UniversalMediaImporter.mm in Sources */ = {isa = PBXBuildFile; fileRef = 47EAF6C416E00E1E00767B56 /* UniversalMediaImporter.mm */; };
+		47EAF6D016E00F1E00767B56 /* libsubstrate.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 47EAF6CF16E00F1E00767B56 /* libsubstrate.dylib */; };
+		47EAF6D216E00F3E00767B56 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 47EAF6D116E00F3E00767B56 /* UIKit.framework */; };
+		47EAF6ED16E012BA00767B56 /* BButton+FontAwesome.h in Headers */ = {isa = PBXBuildFile; fileRef = 47EAF6D616E012BA00767B56 /* BButton+FontAwesome.h */; };
+		47EAF6EE16E012BA00767B56 /* BButton+FontAwesome.m in Sources */ = {isa = PBXBuildFile; fileRef = 47EAF6D716E012BA00767B56 /* BButton+FontAwesome.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		47EAF6EF16E012BA00767B56 /* BButton.h in Headers */ = {isa = PBXBuildFile; fileRef = 47EAF6D816E012BA00767B56 /* BButton.h */; };
+		47EAF6F016E012BA00767B56 /* BButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 47EAF6D916E012BA00767B56 /* BButton.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		47EAF6FB16E0135100767B56 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 47EAF6FA16E0135100767B56 /* CoreGraphics.framework */; };
+		47EAF6FD16E0135500767B56 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 47EAF6FC16E0135500767B56 /* QuartzCore.framework */; };
+		47EAF70416E019AA00767B56 /* Gremlin.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 47EAF70316E019AA00767B56 /* Gremlin.framework */; };
+		47EAF71016E0253300767B56 /* RIButtonItem.h in Headers */ = {isa = PBXBuildFile; fileRef = 47EAF70A16E0253300767B56 /* RIButtonItem.h */; };
+		47EAF71116E0253300767B56 /* RIButtonItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 47EAF70B16E0253300767B56 /* RIButtonItem.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		47EAF71216E0253300767B56 /* UIActionSheet+Blocks.h in Headers */ = {isa = PBXBuildFile; fileRef = 47EAF70C16E0253300767B56 /* UIActionSheet+Blocks.h */; };
+		47EAF71316E0253300767B56 /* UIActionSheet+Blocks.m in Sources */ = {isa = PBXBuildFile; fileRef = 47EAF70D16E0253300767B56 /* UIActionSheet+Blocks.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		47EAF71416E0253300767B56 /* UIAlertView+Blocks.h in Headers */ = {isa = PBXBuildFile; fileRef = 47EAF70E16E0253300767B56 /* UIAlertView+Blocks.h */; };
+		47EAF71516E0253300767B56 /* UIAlertView+Blocks.m in Sources */ = {isa = PBXBuildFile; fileRef = 47EAF70F16E0253300767B56 /* UIAlertView+Blocks.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		47EAF6B616E00E1E00767B56 /* UniversalMediaImporter.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = UniversalMediaImporter.dylib; sourceTree = BUILT_PRODUCTS_DIR; };
+		47EAF6B916E00E1E00767B56 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		47EAF6BE16E00E1E00767B56 /* control.txt */ = {isa = PBXFileReference; lastKnownFileType = text; name = control.txt; path = Package/DEBIAN/control.txt; sourceTree = "<group>"; };
+		47EAF6BF16E00E1E00767B56 /* control */ = {isa = PBXFileReference; lastKnownFileType = text; name = control; path = Package/DEBIAN/control; sourceTree = "<group>"; };
+		47EAF6C116E00E1E00767B56 /* PackageVersion.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = PackageVersion.plist; sourceTree = "<group>"; };
+		47EAF6C216E00E1E00767B56 /* UniversalMediaImporter-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UniversalMediaImporter-Prefix.pch"; sourceTree = "<group>"; };
+		47EAF6C316E00E1E00767B56 /* UniversalMediaImporter.xm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = UniversalMediaImporter.xm; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		47EAF6C416E00E1E00767B56 /* UniversalMediaImporter.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = UniversalMediaImporter.mm; sourceTree = "<group>"; };
+		47EAF6C916E00E1E00767B56 /* UniversalMediaImporter.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = UniversalMediaImporter.plist; path = Package/Library/MobileSubstrate/DynamicLibraries/UniversalMediaImporter.plist; sourceTree = "<group>"; };
+		47EAF6CF16E00F1E00767B56 /* libsubstrate.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsubstrate.dylib; path = ../../../../../opt/iOSOpenDev/lib/libsubstrate.dylib; sourceTree = "<group>"; };
+		47EAF6D116E00F3E00767B56 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		47EAF6D616E012BA00767B56 /* BButton+FontAwesome.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "BButton+FontAwesome.h"; sourceTree = "<group>"; };
+		47EAF6D716E012BA00767B56 /* BButton+FontAwesome.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "BButton+FontAwesome.m"; sourceTree = "<group>"; };
+		47EAF6D816E012BA00767B56 /* BButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BButton.h; sourceTree = "<group>"; };
+		47EAF6D916E012BA00767B56 /* BButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BButton.m; sourceTree = "<group>"; };
+		47EAF6FA16E0135100767B56 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		47EAF6FC16E0135500767B56 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		47EAF70316E019AA00767B56 /* Gremlin.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Gremlin.framework; path = System/Library/PrivateFrameworks/Gremlin.framework; sourceTree = SDKROOT; };
+		47EAF70A16E0253300767B56 /* RIButtonItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RIButtonItem.h; sourceTree = "<group>"; };
+		47EAF70B16E0253300767B56 /* RIButtonItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RIButtonItem.m; sourceTree = "<group>"; };
+		47EAF70C16E0253300767B56 /* UIActionSheet+Blocks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIActionSheet+Blocks.h"; sourceTree = "<group>"; };
+		47EAF70D16E0253300767B56 /* UIActionSheet+Blocks.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIActionSheet+Blocks.m"; sourceTree = "<group>"; };
+		47EAF70E16E0253300767B56 /* UIAlertView+Blocks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIAlertView+Blocks.h"; sourceTree = "<group>"; };
+		47EAF70F16E0253300767B56 /* UIAlertView+Blocks.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIAlertView+Blocks.m"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		47EAF6B216E00E1E00767B56 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				47EAF70416E019AA00767B56 /* Gremlin.framework in Frameworks */,
+				47EAF6FD16E0135500767B56 /* QuartzCore.framework in Frameworks */,
+				47EAF6FB16E0135100767B56 /* CoreGraphics.framework in Frameworks */,
+				47EAF6D216E00F3E00767B56 /* UIKit.framework in Frameworks */,
+				47EAF6D016E00F1E00767B56 /* libsubstrate.dylib in Frameworks */,
+				47EAF6BA16E00E1E00767B56 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		47EAF6AB16E00E1E00767B56 = {
+			isa = PBXGroup;
+			children = (
+				47EAF6D316E012BA00767B56 /* Vendors */,
+				47EAF6CF16E00F1E00767B56 /* libsubstrate.dylib */,
+				47EAF6BB16E00E1E00767B56 /* UniversalMediaImporter */,
+				47EAF6B816E00E1E00767B56 /* Frameworks */,
+				47EAF6B716E00E1E00767B56 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		47EAF6B716E00E1E00767B56 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				47EAF6B616E00E1E00767B56 /* UniversalMediaImporter.dylib */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		47EAF6B816E00E1E00767B56 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				47EAF70316E019AA00767B56 /* Gremlin.framework */,
+				47EAF6FC16E0135500767B56 /* QuartzCore.framework */,
+				47EAF6FA16E0135100767B56 /* CoreGraphics.framework */,
+				47EAF6D116E00F3E00767B56 /* UIKit.framework */,
+				47EAF6B916E00E1E00767B56 /* Foundation.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		47EAF6BB16E00E1E00767B56 /* UniversalMediaImporter */ = {
+			isa = PBXGroup;
+			children = (
+				47EAF6C316E00E1E00767B56 /* UniversalMediaImporter.xm */,
+				47EAF6C416E00E1E00767B56 /* UniversalMediaImporter.mm */,
+				47EAF6BC16E00E1E00767B56 /* Package */,
+				47EAF6C016E00E1E00767B56 /* Supporting Files */,
+			);
+			path = UniversalMediaImporter;
+			sourceTree = "<group>";
+		};
+		47EAF6BC16E00E1E00767B56 /* Package */ = {
+			isa = PBXGroup;
+			children = (
+				47EAF6BD16E00E1E00767B56 /* DEBIAN */,
+				47EAF6C616E00E1E00767B56 /* Library */,
+			);
+			name = Package;
+			sourceTree = "<group>";
+		};
+		47EAF6BD16E00E1E00767B56 /* DEBIAN */ = {
+			isa = PBXGroup;
+			children = (
+				47EAF6BE16E00E1E00767B56 /* control.txt */,
+				47EAF6BF16E00E1E00767B56 /* control */,
+			);
+			name = DEBIAN;
+			sourceTree = "<group>";
+		};
+		47EAF6C016E00E1E00767B56 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				47EAF6C116E00E1E00767B56 /* PackageVersion.plist */,
+				47EAF6C216E00E1E00767B56 /* UniversalMediaImporter-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		47EAF6C616E00E1E00767B56 /* Library */ = {
+			isa = PBXGroup;
+			children = (
+				47EAF6C716E00E1E00767B56 /* MobileSubstrate */,
+			);
+			name = Library;
+			sourceTree = "<group>";
+		};
+		47EAF6C716E00E1E00767B56 /* MobileSubstrate */ = {
+			isa = PBXGroup;
+			children = (
+				47EAF6C816E00E1E00767B56 /* DynamicLibraries */,
+			);
+			name = MobileSubstrate;
+			sourceTree = "<group>";
+		};
+		47EAF6C816E00E1E00767B56 /* DynamicLibraries */ = {
+			isa = PBXGroup;
+			children = (
+				47EAF6C916E00E1E00767B56 /* UniversalMediaImporter.plist */,
+			);
+			name = DynamicLibraries;
+			sourceTree = "<group>";
+		};
+		47EAF6D316E012BA00767B56 /* Vendors */ = {
+			isa = PBXGroup;
+			children = (
+				47EAF70816E0253300767B56 /* UIAlertView-Blocks */,
+				47EAF6D516E012BA00767B56 /* BButton */,
+			);
+			path = Vendors;
+			sourceTree = "<group>";
+		};
+		47EAF6D516E012BA00767B56 /* BButton */ = {
+			isa = PBXGroup;
+			children = (
+				47EAF6D616E012BA00767B56 /* BButton+FontAwesome.h */,
+				47EAF6D716E012BA00767B56 /* BButton+FontAwesome.m */,
+				47EAF6D816E012BA00767B56 /* BButton.h */,
+				47EAF6D916E012BA00767B56 /* BButton.m */,
+			);
+			name = BButton;
+			path = BButton/BButton;
+			sourceTree = "<group>";
+		};
+		47EAF70816E0253300767B56 /* UIAlertView-Blocks */ = {
+			isa = PBXGroup;
+			children = (
+				47EAF70A16E0253300767B56 /* RIButtonItem.h */,
+				47EAF70B16E0253300767B56 /* RIButtonItem.m */,
+				47EAF70C16E0253300767B56 /* UIActionSheet+Blocks.h */,
+				47EAF70D16E0253300767B56 /* UIActionSheet+Blocks.m */,
+				47EAF70E16E0253300767B56 /* UIAlertView+Blocks.h */,
+				47EAF70F16E0253300767B56 /* UIAlertView+Blocks.m */,
+			);
+			path = "UIAlertView-Blocks";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		47EAF6B316E00E1E00767B56 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				47EAF6ED16E012BA00767B56 /* BButton+FontAwesome.h in Headers */,
+				47EAF6EF16E012BA00767B56 /* BButton.h in Headers */,
+				47EAF71016E0253300767B56 /* RIButtonItem.h in Headers */,
+				47EAF71216E0253300767B56 /* UIActionSheet+Blocks.h in Headers */,
+				47EAF71416E0253300767B56 /* UIAlertView+Blocks.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		47EAF6B516E00E1E00767B56 /* UniversalMediaImporter */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 47EAF6CC16E00E1E00767B56 /* Build configuration list for PBXNativeTarget "UniversalMediaImporter" */;
+			buildPhases = (
+				47EAF6B016E00E1E00767B56 /* ShellScript */,
+				47EAF6B116E00E1E00767B56 /* Sources */,
+				47EAF6B216E00E1E00767B56 /* Frameworks */,
+				47EAF6B316E00E1E00767B56 /* Headers */,
+				47EAF6B416E00E1E00767B56 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = UniversalMediaImporter;
+			productName = UniversalMediaImporter;
+			productReference = 47EAF6B616E00E1E00767B56 /* UniversalMediaImporter.dylib */;
+			productType = "com.apple.product-type.library.dynamic";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		47EAF6AC16E00E1E00767B56 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0460;
+			};
+			buildConfigurationList = 47EAF6AF16E00E1E00767B56 /* Build configuration list for PBXProject "UniversalMediaImporter" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 47EAF6AB16E00E1E00767B56;
+			productRefGroup = 47EAF6B716E00E1E00767B56 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				47EAF6B516E00E1E00767B56 /* UniversalMediaImporter */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		47EAF6B016E00E1E00767B56 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/opt/iOSOpenDev/bin/iosod --xcbp-logos";
+		};
+		47EAF6B416E00E1E00767B56 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/opt/iOSOpenDev/bin/iosod --xcbp";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		47EAF6B116E00E1E00767B56 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				47EAF6C516E00E1E00767B56 /* UniversalMediaImporter.mm in Sources */,
+				47EAF6EE16E012BA00767B56 /* BButton+FontAwesome.m in Sources */,
+				47EAF6F016E012BA00767B56 /* BButton.m in Sources */,
+				47EAF71116E0253300767B56 /* RIButtonItem.m in Sources */,
+				47EAF71316E0253300767B56 /* UIActionSheet+Blocks.m in Sources */,
+				47EAF71516E0253300767B56 /* UIAlertView+Blocks.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		47EAF6CA16E00E1E00767B56 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+				EXCLUDED_RECURSIVE_SEARCH_PATH_SUBDIRECTORIES = "*.nib *.lproj *.gch (*) .DS_Store CVS .svn .git .hg *.xcodeproj *.xcode *.pbproj *.pbxproj";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(iOSOpenDevPath)/frameworks/**",
+					"$(SDKROOT)/System/Library/PrivateFrameworks",
+				);
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = "$(iOSOpenDevPath)/include/**";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				LIBRARY_SEARCH_PATHS = "$(iOSOpenDevPath)/lib/**";
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = NO;
+				iOSOpenDevPath = /opt/iOSOpenDev;
+			};
+			name = Debug;
+		};
+		47EAF6CB16E00E1E00767B56 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = YES;
+				EXCLUDED_RECURSIVE_SEARCH_PATH_SUBDIRECTORIES = "*.nib *.lproj *.gch (*) .DS_Store CVS .svn .git .hg *.xcodeproj *.xcode *.pbproj *.pbxproj";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(iOSOpenDevPath)/frameworks/**",
+					"$(SDKROOT)/System/Library/PrivateFrameworks",
+				);
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = "$(iOSOpenDevPath)/include/**";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				LIBRARY_SEARCH_PATHS = "$(iOSOpenDevPath)/lib/**";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				iOSOpenDevPath = /opt/iOSOpenDev;
+			};
+			name = Release;
+		};
+		47EAF6CD16E00E1E00767B56 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer: Enea Gjoka (8BM8YEN7BB)";
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SDKROOT)$(SYSTEM_LIBRARY_DIR)/PrivateFrameworks\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "UniversalMediaImporter/UniversalMediaImporter-Prefix.pch";
+				INSTALL_PATH = /Library/MobileSubstrate/DynamicLibraries;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/opt/iOSOpenDev/lib,
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "13AC5755-0175-4BB6-87EC-760BE150A90A";
+				iOSOpenDevBuildPackageOnAnyBuild = NO;
+				iOSOpenDevCopyOnBuild = NO;
+				iOSOpenDevDevice = 192.168.2.4;
+				iOSOpenDevInstallOnAnyBuild = NO;
+				iOSOpenDevInstallOnProfiling = YES;
+				iOSOpenDevRespringOnInstall = YES;
+				iOSOpenDevUsePackageVersionPList = YES;
+			};
+			name = Debug;
+		};
+		47EAF6CE16E00E1E00767B56 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer: Enea Gjoka (8BM8YEN7BB)";
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SDKROOT)$(SYSTEM_LIBRARY_DIR)/PrivateFrameworks\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "UniversalMediaImporter/UniversalMediaImporter-Prefix.pch";
+				INSTALL_PATH = /Library/MobileSubstrate/DynamicLibraries;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/opt/iOSOpenDev/lib,
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "13AC5755-0175-4BB6-87EC-760BE150A90A";
+				iOSOpenDevBuildPackageOnAnyBuild = NO;
+				iOSOpenDevCopyOnBuild = NO;
+				iOSOpenDevDevice = 192.168.2.4;
+				iOSOpenDevInstallOnAnyBuild = NO;
+				iOSOpenDevInstallOnProfiling = YES;
+				iOSOpenDevRespringOnInstall = YES;
+				iOSOpenDevUsePackageVersionPList = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		47EAF6AF16E00E1E00767B56 /* Build configuration list for PBXProject "UniversalMediaImporter" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				47EAF6CA16E00E1E00767B56 /* Debug */,
+				47EAF6CB16E00E1E00767B56 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		47EAF6CC16E00E1E00767B56 /* Build configuration list for PBXNativeTarget "UniversalMediaImporter" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				47EAF6CD16E00E1E00767B56 /* Debug */,
+				47EAF6CE16E00E1E00767B56 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 47EAF6AC16E00E1E00767B56 /* Project object */;
+}
