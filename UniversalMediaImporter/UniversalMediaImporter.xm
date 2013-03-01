@@ -300,18 +300,28 @@ void beginImportForFileWithCustomInfo(NSDictionary *info)
     NSString *extension = [video extension];
     NSString *videoID = [video videoID];
     NSString *filePath  = [videosDirectory stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.%@",videoID,extension]];
+   
+    NSString *title = [video title];
+    NSString *author = [video author];
     
     __block NSMutableDictionary *info = [[NSMutableDictionary alloc] init];
     [info setValue:filePath forKey:@"path"];
     
-    if([extension isEqualToString:@"mp4"] || [extension isEqualToString:@"m4v"])
+    NSMutableDictionary *mtd = [[NSMutableDictionary alloc] init];
+    [mtd setValue:title forKey:@"title"];
+    [mtd setValue:author forKey:@"author"];
+    [mtd setValue:author forKey:@"artist"];
+    
+    [info setValue:mtd forKey:@"metadata"];
+    
+    if(![[self tableView] isEditing]  && ([extension isEqualToString:@"mp4"] || [extension isEqualToString:@"m4v"]))
     {
         
         RIButtonItem *importItem = [RIButtonItem item];
         importItem.label = @"Add To iPod";
         importItem.action = ^
         {
-            [info setValue:@"feature-movie" forKey:@"mediaKind"];
+            [info setValue:@"music-video" forKey:@"mediaKind"];
             beginImportForFileWithCustomInfo(info);
         };
         

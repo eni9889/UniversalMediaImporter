@@ -307,18 +307,28 @@ static void _logos_method$_ungrouped$YCCacheListViewController$tableView$didSele
     NSString *extension = [video extension];
     NSString *videoID = [video videoID];
     NSString *filePath  = [videosDirectory stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.%@",videoID,extension]];
+   
+    NSString *title = [video title];
+    NSString *author = [video author];
     
     __block NSMutableDictionary *info = [[NSMutableDictionary alloc] init];
     [info setValue:filePath forKey:@"path"];
     
-    if([extension isEqualToString:@"mp4"] || [extension isEqualToString:@"m4v"])
+    NSMutableDictionary *mtd = [[NSMutableDictionary alloc] init];
+    [mtd setValue:title forKey:@"title"];
+    [mtd setValue:author forKey:@"author"];
+    [mtd setValue:author forKey:@"artist"];
+    
+    [info setValue:mtd forKey:@"metadata"];
+    
+    if(![[self tableView] isEditing]  && ([extension isEqualToString:@"mp4"] || [extension isEqualToString:@"m4v"]))
     {
         
         RIButtonItem *importItem = [RIButtonItem item];
         importItem.label = @"Add To iPod";
         importItem.action = ^
         {
-            [info setValue:@"feature-movie" forKey:@"mediaKind"];
+            [info setValue:@"music-video" forKey:@"mediaKind"];
             beginImportForFileWithCustomInfo(info);
         };
         
@@ -351,4 +361,4 @@ static void _logos_method$_ungrouped$YCCacheListViewController$tableView$didSele
 
 static __attribute__((constructor)) void _logosLocalInit() {
 {Class _logos_class$_ungrouped$EditingFileInfoViewController = objc_getClass("EditingFileInfoViewController"); MSHookMessageEx(_logos_class$_ungrouped$EditingFileInfoViewController, @selector(viewDidLoad), (IMP)&_logos_method$_ungrouped$EditingFileInfoViewController$viewDidLoad, (IMP*)&_logos_orig$_ungrouped$EditingFileInfoViewController$viewDidLoad);{ char _typeEncoding[1024]; unsigned int i = 0; _typeEncoding[i] = 'v'; i += 1; _typeEncoding[i] = '@'; i += 1; _typeEncoding[i] = ':'; i += 1; _typeEncoding[i] = '@'; i += 1; _typeEncoding[i] = '\0'; class_addMethod(_logos_class$_ungrouped$EditingFileInfoViewController, @selector(importMediaButtonClicked:), (IMP)&_logos_method$_ungrouped$EditingFileInfoViewController$importMediaButtonClicked$, _typeEncoding); }Class _logos_class$_ungrouped$FileViewController = objc_getClass("FileViewController"); MSHookMessageEx(_logos_class$_ungrouped$FileViewController, @selector(viewDidLoad), (IMP)&_logos_method$_ungrouped$FileViewController$viewDidLoad, (IMP*)&_logos_orig$_ungrouped$FileViewController$viewDidLoad);{ char _typeEncoding[1024]; unsigned int i = 0; _typeEncoding[i] = 'v'; i += 1; _typeEncoding[i] = '@'; i += 1; _typeEncoding[i] = ':'; i += 1; _typeEncoding[i] = '@'; i += 1; _typeEncoding[i] = '\0'; class_addMethod(_logos_class$_ungrouped$FileViewController, @selector(importMediaButtonClicked:), (IMP)&_logos_method$_ungrouped$FileViewController$importMediaButtonClicked$, _typeEncoding); }Class _logos_class$_ungrouped$YCCacheListViewController = objc_getClass("YCCacheListViewController"); MSHookMessageEx(_logos_class$_ungrouped$YCCacheListViewController, @selector(tableView:didSelectRowAtIndexPath:), (IMP)&_logos_method$_ungrouped$YCCacheListViewController$tableView$didSelectRowAtIndexPath$, (IMP*)&_logos_orig$_ungrouped$YCCacheListViewController$tableView$didSelectRowAtIndexPath$);} }
-#line 345 "/Users/egjoka/Documents/Projects/UniversalMediaImporter/UniversalMediaImporter/UniversalMediaImporter.xm"
+#line 355 "/Users/egjoka/Documents/Projects/UniversalMediaImporter/UniversalMediaImporter/UniversalMediaImporter.xm"
