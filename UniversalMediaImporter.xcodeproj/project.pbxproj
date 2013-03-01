@@ -29,14 +29,13 @@
 /* Begin PBXFileReference section */
 		47EAF6B616E00E1E00767B56 /* UniversalMediaImporter.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = UniversalMediaImporter.dylib; sourceTree = BUILT_PRODUCTS_DIR; };
 		47EAF6B916E00E1E00767B56 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		47EAF6BE16E00E1E00767B56 /* control.txt */ = {isa = PBXFileReference; lastKnownFileType = text; name = control.txt; path = Package/DEBIAN/control.txt; sourceTree = "<group>"; };
 		47EAF6BF16E00E1E00767B56 /* control */ = {isa = PBXFileReference; lastKnownFileType = text; name = control; path = Package/DEBIAN/control; sourceTree = "<group>"; };
 		47EAF6C116E00E1E00767B56 /* PackageVersion.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = PackageVersion.plist; sourceTree = "<group>"; };
 		47EAF6C216E00E1E00767B56 /* UniversalMediaImporter-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UniversalMediaImporter-Prefix.pch"; sourceTree = "<group>"; };
 		47EAF6C316E00E1E00767B56 /* UniversalMediaImporter.xm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = UniversalMediaImporter.xm; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		47EAF6C416E00E1E00767B56 /* UniversalMediaImporter.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = UniversalMediaImporter.mm; sourceTree = "<group>"; };
 		47EAF6C916E00E1E00767B56 /* UniversalMediaImporter.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = UniversalMediaImporter.plist; path = Package/Library/MobileSubstrate/DynamicLibraries/UniversalMediaImporter.plist; sourceTree = "<group>"; };
-		47EAF6CF16E00F1E00767B56 /* libsubstrate.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsubstrate.dylib; path = ../../../../../opt/iOSOpenDev/lib/libsubstrate.dylib; sourceTree = "<group>"; };
+		47EAF6CF16E00F1E00767B56 /* libsubstrate.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsubstrate.dylib; path = /opt/iOSOpenDev/lib/libsubstrate.dylib; sourceTree = "<absolute>"; };
 		47EAF6D116E00F3E00767B56 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		47EAF6D616E012BA00767B56 /* BButton+FontAwesome.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "BButton+FontAwesome.h"; sourceTree = "<group>"; };
 		47EAF6D716E012BA00767B56 /* BButton+FontAwesome.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "BButton+FontAwesome.m"; sourceTree = "<group>"; };
@@ -74,7 +73,6 @@
 			isa = PBXGroup;
 			children = (
 				47EAF6D316E012BA00767B56 /* Vendors */,
-				47EAF6CF16E00F1E00767B56 /* libsubstrate.dylib */,
 				47EAF6BB16E00E1E00767B56 /* UniversalMediaImporter */,
 				47EAF6B816E00E1E00767B56 /* Frameworks */,
 				47EAF6B716E00E1E00767B56 /* Products */,
@@ -92,6 +90,7 @@
 		47EAF6B816E00E1E00767B56 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				47EAF6CF16E00F1E00767B56 /* libsubstrate.dylib */,
 				47EAF70316E019AA00767B56 /* Gremlin.framework */,
 				47EAF6FC16E0135500767B56 /* QuartzCore.framework */,
 				47EAF6FA16E0135100767B56 /* CoreGraphics.framework */,
@@ -124,7 +123,6 @@
 		47EAF6BD16E00E1E00767B56 /* DEBIAN */ = {
 			isa = PBXGroup;
 			children = (
-				47EAF6BE16E00E1E00767B56 /* control.txt */,
 				47EAF6BF16E00E1E00767B56 /* control */,
 			);
 			name = DEBIAN;

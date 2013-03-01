@@ -94,6 +94,7 @@ void beginImportForFileWithCustomInfo(NSDictionary *info)
                                           cancelButtonTitle:nil
                                           otherButtonTitles:@"OK", nil];
     [alert show];
+    return;
 }
 
 
@@ -102,32 +103,45 @@ void beginImportForFileWithCustomInfo(NSDictionary *info)
 @class EditingFileInfoViewController; @class FileViewController; 
 static void (*_logos_orig$_ungrouped$EditingFileInfoViewController$viewDidLoad)(EditingFileInfoViewController*, SEL); static void _logos_method$_ungrouped$EditingFileInfoViewController$viewDidLoad(EditingFileInfoViewController*, SEL); static void _logos_method$_ungrouped$EditingFileInfoViewController$importMediaButtonClicked$(EditingFileInfoViewController*, SEL, id); static void (*_logos_orig$_ungrouped$FileViewController$viewDidLoad)(FileViewController*, SEL); static void _logos_method$_ungrouped$FileViewController$viewDidLoad(FileViewController*, SEL); static void _logos_method$_ungrouped$FileViewController$importMediaButtonClicked$(FileViewController*, SEL, id); 
 
-#line 99 "/Users/egjoka/Documents/Projects/UniversalMediaImporter/UniversalMediaImporter/UniversalMediaImporter.xm"
+#line 100 "/Users/egjoka/Documents/Projects/UniversalMediaImporter/UniversalMediaImporter/UniversalMediaImporter.xm"
 
 
 static void _logos_method$_ungrouped$EditingFileInfoViewController$viewDidLoad(EditingFileInfoViewController* self, SEL _cmd) {
     NSLog(@"-[<EditingFileInfoViewController: %p> viewDidLoad]", self);
     _logos_orig$_ungrouped$EditingFileInfoViewController$viewDidLoad(self, _cmd); 
+
     
-    id file = [self valueForKeyPath:@"_file"];
-    NSString *extension = [file valueForKeyPath:@"_extension"];
-    
-    if(fileExtensionSupported(extension))
+    @try
     {
-        UIView *header = [(UITableView *)[self tableView] tableHeaderView];
-        if(!header)
-        {
-            header = [[UIView alloc] initWithFrame:CGRectMake(0,0,[(UIView *)[self view] frame].size.width,50)];
-            [(UITableView *)[self tableView] setTableHeaderView:header];
-        }
+        id file = [self valueForKeyPath:@"_file"];
+        NSString *extension = [file valueForKeyPath:@"_extension"];
         
-        BButton *btn = [[BButton alloc] initWithFrame:CGRectMake((header.frame.size.width-112.0)/2.0f, 5.0, 112.0, 40.0)];
-        [btn setTitle:@"Add To iPod" forState:UIControlStateNormal]; 
-        [btn addTarget:self action:@selector(importMediaButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
-        btn.color = [UIColor colorWithRed:0.32f green:0.64f blue:0.32f alpha:1.00f]; 
-        [header addSubview:btn];
-        [btn release];
+        if(fileExtensionSupported(extension))
+        {
+            UIView *header = [(UITableView *)[self tableView] tableHeaderView];
+            if(!header)
+            {
+                header = [[UIView alloc] initWithFrame:CGRectMake(0,0,[(UIView *)[self view] frame].size.width,50)];
+                [(UITableView *)[self tableView] setTableHeaderView:header];
+            }
+            
+            BButton *btn = [[BButton alloc] initWithFrame:CGRectMake((header.frame.size.width-112.0)/2.0f, 5.0, 112.0, 40.0)];
+            [btn setTitle:@"Add To iPod" forState:UIControlStateNormal]; 
+            [btn addTarget:self action:@selector(importMediaButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
+            btn.color = [UIColor colorWithRed:0.32f green:0.64f blue:0.32f alpha:1.00f]; 
+            [header addSubview:btn];
+            [btn release];
+        }
     }
+    @catch (NSException *exception)
+    {
+        NSLog(@"Caught exception: %@", exception);
+    }
+    @finally
+    {
+        
+    }
+    
     return;
 }
 
@@ -142,10 +156,8 @@ static void _logos_method$_ungrouped$EditingFileInfoViewController$importMediaBu
     __block NSMutableDictionary *info = [[NSMutableDictionary alloc] init];
     [info setValue:filePath forKey:@"path"];
     
-    
     if([extension isEqualToString:@"mp4"] || [extension isEqualToString:@"m4v"])
     {
-        __unsafe_unretained EditingFileInfoViewController *blockSafeSelf = self;
         
         RIButtonItem *movieItem = [RIButtonItem item];
         movieItem.label = @"Movie";
@@ -181,7 +193,7 @@ static void _logos_method$_ungrouped$EditingFileInfoViewController$importMediaBu
         [info setValue:mediaKindForExtension(extension) forKey:@"mediaKind"];
         beginImportForFileWithCustomInfo(info);
     }
-    
+    return;
 }
 
 
@@ -193,25 +205,38 @@ static void _logos_method$_ungrouped$FileViewController$viewDidLoad(FileViewCont
     NSLog(@"-[<FileViewController: %p> viewDidLoad]", self);
     _logos_orig$_ungrouped$FileViewController$viewDidLoad(self, _cmd); 
     
-    NSString *filePath = [self file];
-    NSString *extension = [filePath pathExtension];
     
-    if(fileExtensionSupported(extension))
+    @try
     {
-        UIView *header = [(UITableView *)[self tableView] tableHeaderView];
-        if(!header)
-        {
-            header = [[UIView alloc] initWithFrame:CGRectMake(0,0,[(UIView *)[self view] frame].size.width,50)];
-            [(UITableView *)[self tableView] setTableHeaderView:header];
-        }
+        NSString *filePath = [self file];
+        NSString *extension = [filePath pathExtension];
         
-        BButton *btn = [[BButton alloc] initWithFrame:CGRectMake((header.frame.size.width-112.0)/2.0f, 5.0, 112.0, 40.0)];
-        [btn setTitle:@"Add To iPod" forState:UIControlStateNormal]; 
-        [btn addTarget:self action:@selector(importMediaButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
-        btn.color = [UIColor colorWithRed:0.32f green:0.64f blue:0.32f alpha:1.00f]; 
-        [header addSubview:btn];
-        [btn release];
+        if(fileExtensionSupported(extension))
+        {
+            UIView *header = [(UITableView *)[self tableView] tableHeaderView];
+            if(!header)
+            {
+                header = [[UIView alloc] initWithFrame:CGRectMake(0,0,[(UIView *)[self view] frame].size.width,50)];
+                [(UITableView *)[self tableView] setTableHeaderView:header];
+            }
+            
+            BButton *btn = [[BButton alloc] initWithFrame:CGRectMake((header.frame.size.width-112.0)/2.0f, 5.0, 112.0, 40.0)];
+            [btn setTitle:@"Add To iPod" forState:UIControlStateNormal]; 
+            [btn addTarget:self action:@selector(importMediaButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
+            btn.color = [UIColor colorWithRed:0.32f green:0.64f blue:0.32f alpha:1.00f]; 
+            [header addSubview:btn];
+            [btn release];
+        }
     }
+    @catch (NSException *exception)
+    {
+        NSLog(@"Caught exception: %@", exception);
+    }
+    @finally
+    {
+        
+    }
+    
     return;
 }
 
@@ -262,9 +287,9 @@ static void _logos_method$_ungrouped$FileViewController$importMediaButtonClicked
         [info setValue:mediaKindForExtension(extension) forKey:@"mediaKind"];
         beginImportForFileWithCustomInfo(info);
     }
-    
+    return;
 }
 
 static __attribute__((constructor)) void _logosLocalInit() {
 {Class _logos_class$_ungrouped$EditingFileInfoViewController = objc_getClass("EditingFileInfoViewController"); MSHookMessageEx(_logos_class$_ungrouped$EditingFileInfoViewController, @selector(viewDidLoad), (IMP)&_logos_method$_ungrouped$EditingFileInfoViewController$viewDidLoad, (IMP*)&_logos_orig$_ungrouped$EditingFileInfoViewController$viewDidLoad);{ char _typeEncoding[1024]; unsigned int i = 0; _typeEncoding[i] = 'v'; i += 1; _typeEncoding[i] = '@'; i += 1; _typeEncoding[i] = ':'; i += 1; _typeEncoding[i] = '@'; i += 1; _typeEncoding[i] = '\0'; class_addMethod(_logos_class$_ungrouped$EditingFileInfoViewController, @selector(importMediaButtonClicked:), (IMP)&_logos_method$_ungrouped$EditingFileInfoViewController$importMediaButtonClicked$, _typeEncoding); }Class _logos_class$_ungrouped$FileViewController = objc_getClass("FileViewController"); MSHookMessageEx(_logos_class$_ungrouped$FileViewController, @selector(viewDidLoad), (IMP)&_logos_method$_ungrouped$FileViewController$viewDidLoad, (IMP*)&_logos_orig$_ungrouped$FileViewController$viewDidLoad);{ char _typeEncoding[1024]; unsigned int i = 0; _typeEncoding[i] = 'v'; i += 1; _typeEncoding[i] = '@'; i += 1; _typeEncoding[i] = ':'; i += 1; _typeEncoding[i] = '@'; i += 1; _typeEncoding[i] = '\0'; class_addMethod(_logos_class$_ungrouped$FileViewController, @selector(importMediaButtonClicked:), (IMP)&_logos_method$_ungrouped$FileViewController$importMediaButtonClicked$, _typeEncoding); }} }
-#line 261 "/Users/egjoka/Documents/Projects/UniversalMediaImporter/UniversalMediaImporter/UniversalMediaImporter.xm"
+#line 286 "/Users/egjoka/Documents/Projects/UniversalMediaImporter/UniversalMediaImporter/UniversalMediaImporter.xm"

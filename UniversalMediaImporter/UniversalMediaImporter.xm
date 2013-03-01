@@ -102,26 +102,39 @@ void beginImportForFileWithCustomInfo(NSDictionary *info)
 {
     %log;
     %orig; // Call the original implementation of this method
-    
-    id file = [self valueForKeyPath:@"_file"];
-    NSString *extension = [file valueForKeyPath:@"_extension"];
-    
-    if(fileExtensionSupported(extension))
+
+    //Since apps get updated all lets try and catch any exceptions that could happen
+    @try
     {
-        UIView *header = [(UITableView *)[self tableView] tableHeaderView];
-        if(!header)
-        {
-            header = [[UIView alloc] initWithFrame:CGRectMake(0,0,[(UIView *)[self view] frame].size.width,50)];
-            [(UITableView *)[self tableView] setTableHeaderView:header];
-        }
+        id file = [self valueForKeyPath:@"_file"];
+        NSString *extension = [file valueForKeyPath:@"_extension"];
         
-        BButton *btn = [[BButton alloc] initWithFrame:CGRectMake((header.frame.size.width-112.0)/2.0f, 5.0, 112.0, 40.0)];
-        [btn setTitle:@"Add To iPod" forState:UIControlStateNormal]; // Set the button title
-        [btn addTarget:self action:@selector(importMediaButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
-        btn.color = [UIColor colorWithRed:0.32f green:0.64f blue:0.32f alpha:1.00f]; // Set purple color
-        [header addSubview:btn];
-        [btn release];
+        if(fileExtensionSupported(extension))
+        {
+            UIView *header = [(UITableView *)[self tableView] tableHeaderView];
+            if(!header)
+            {
+                header = [[UIView alloc] initWithFrame:CGRectMake(0,0,[(UIView *)[self view] frame].size.width,50)];
+                [(UITableView *)[self tableView] setTableHeaderView:header];
+            }
+            
+            BButton *btn = [[BButton alloc] initWithFrame:CGRectMake((header.frame.size.width-112.0)/2.0f, 5.0, 112.0, 40.0)];
+            [btn setTitle:@"Add To iPod" forState:UIControlStateNormal]; // Set the button title
+            [btn addTarget:self action:@selector(importMediaButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
+            btn.color = [UIColor colorWithRed:0.32f green:0.64f blue:0.32f alpha:1.00f]; // Set purple color
+            [header addSubview:btn];
+            [btn release];
+        }
     }
+    @catch (NSException *exception)
+    {
+        NSLog(@"Caught exception: %@", exception);
+    }
+    @finally
+    {
+        
+    }
+    
     return;
 }
 
@@ -136,10 +149,8 @@ void beginImportForFileWithCustomInfo(NSDictionary *info)
     __block NSMutableDictionary *info = [[NSMutableDictionary alloc] init];
     [info setValue:filePath forKey:@"path"];
     
-    
     if([extension isEqualToString:@"mp4"] || [extension isEqualToString:@"m4v"])
     {
-        __unsafe_unretained EditingFileInfoViewController *blockSafeSelf = self;
         
         RIButtonItem *movieItem = [RIButtonItem item];
         movieItem.label = @"Movie";
@@ -187,25 +198,38 @@ void beginImportForFileWithCustomInfo(NSDictionary *info)
     %log;
     %orig; // Call the original implementation of this method
     
-    NSString *filePath = [self file];
-    NSString *extension = [filePath pathExtension];
-    
-    if(fileExtensionSupported(extension))
+    //Since apps get updated all lets try and catch any exceptions that could happen
+    @try
     {
-        UIView *header = [(UITableView *)[self tableView] tableHeaderView];
-        if(!header)
-        {
-            header = [[UIView alloc] initWithFrame:CGRectMake(0,0,[(UIView *)[self view] frame].size.width,50)];
-            [(UITableView *)[self tableView] setTableHeaderView:header];
-        }
+        NSString *filePath = [self file];
+        NSString *extension = [filePath pathExtension];
         
-        BButton *btn = [[BButton alloc] initWithFrame:CGRectMake((header.frame.size.width-112.0)/2.0f, 5.0, 112.0, 40.0)];
-        [btn setTitle:@"Add To iPod" forState:UIControlStateNormal]; // Set the button title
-        [btn addTarget:self action:@selector(importMediaButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
-        btn.color = [UIColor colorWithRed:0.32f green:0.64f blue:0.32f alpha:1.00f]; // Set purple color
-        [header addSubview:btn];
-        [btn release];
+        if(fileExtensionSupported(extension))
+        {
+            UIView *header = [(UITableView *)[self tableView] tableHeaderView];
+            if(!header)
+            {
+                header = [[UIView alloc] initWithFrame:CGRectMake(0,0,[(UIView *)[self view] frame].size.width,50)];
+                [(UITableView *)[self tableView] setTableHeaderView:header];
+            }
+            
+            BButton *btn = [[BButton alloc] initWithFrame:CGRectMake((header.frame.size.width-112.0)/2.0f, 5.0, 112.0, 40.0)];
+            [btn setTitle:@"Add To iPod" forState:UIControlStateNormal]; // Set the button title
+            [btn addTarget:self action:@selector(importMediaButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
+            btn.color = [UIColor colorWithRed:0.32f green:0.64f blue:0.32f alpha:1.00f]; // Set purple color
+            [header addSubview:btn];
+            [btn release];
+        }
     }
+    @catch (NSException *exception)
+    {
+        NSLog(@"Caught exception: %@", exception);
+    }
+    @finally
+    {
+        
+    }
+    
     return;
 }
 
