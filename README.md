@@ -14,3 +14,7 @@ So Far the following apps are supported:
 More apps will be added soon but I do not want to buy all of them so please if you are able add support for apps that you use.
 
 You can download the deb at http://apt.thebigboss.org/onepackage.php?bundleid=com.unlimapps.universalmediaimporter&db= or if you are on an iOS device by clicking cydia://package/com.unlimapps.universalmediaimporter
+
+TODO
+	Convert to remote plugin based system
+	Add more apps
