@@ -101,8 +101,8 @@ void beginImportForFileWithCustomInfo(NSDictionary *info)
 
 #include <logos/logos.h>
 #include <substrate.h>
-@class EditingFileInfoViewController; @class FileViewController; @class YCCacheListViewController; 
-static void (*_logos_orig$_ungrouped$EditingFileInfoViewController$viewDidLoad)(EditingFileInfoViewController*, SEL); static void _logos_method$_ungrouped$EditingFileInfoViewController$viewDidLoad(EditingFileInfoViewController*, SEL); static void _logos_method$_ungrouped$EditingFileInfoViewController$importMediaButtonClicked$(EditingFileInfoViewController*, SEL, id); static void (*_logos_orig$_ungrouped$FileViewController$viewDidLoad)(FileViewController*, SEL); static void _logos_method$_ungrouped$FileViewController$viewDidLoad(FileViewController*, SEL); static void _logos_method$_ungrouped$FileViewController$importMediaButtonClicked$(FileViewController*, SEL, id); static void (*_logos_orig$_ungrouped$YCCacheListViewController$tableView$didSelectRowAtIndexPath$)(YCCacheListViewController*, SEL, UITableView *, NSIndexPath *); static void _logos_method$_ungrouped$YCCacheListViewController$tableView$didSelectRowAtIndexPath$(YCCacheListViewController*, SEL, UITableView *, NSIndexPath *); 
+@class UAFileViewController; @class EditingFileInfoViewController; @class FileViewController; @class YCCacheListViewController; 
+static void (*_logos_orig$_ungrouped$EditingFileInfoViewController$viewDidLoad)(EditingFileInfoViewController*, SEL); static void _logos_method$_ungrouped$EditingFileInfoViewController$viewDidLoad(EditingFileInfoViewController*, SEL); static void _logos_method$_ungrouped$EditingFileInfoViewController$importMediaButtonClicked$(EditingFileInfoViewController*, SEL, id); static void (*_logos_orig$_ungrouped$FileViewController$viewDidLoad)(FileViewController*, SEL); static void _logos_method$_ungrouped$FileViewController$viewDidLoad(FileViewController*, SEL); static void _logos_method$_ungrouped$FileViewController$importMediaButtonClicked$(FileViewController*, SEL, id); static void (*_logos_orig$_ungrouped$UAFileViewController$viewDidLoad)(UAFileViewController*, SEL); static void _logos_method$_ungrouped$UAFileViewController$viewDidLoad(UAFileViewController*, SEL); static void _logos_method$_ungrouped$UAFileViewController$importMediaButtonClicked$(UAFileViewController*, SEL, id); static void (*_logos_orig$_ungrouped$YCCacheListViewController$tableView$didSelectRowAtIndexPath$)(YCCacheListViewController*, SEL, UITableView *, NSIndexPath *); static void _logos_method$_ungrouped$YCCacheListViewController$tableView$didSelectRowAtIndexPath$(YCCacheListViewController*, SEL, UITableView *, NSIndexPath *); 
 
 #line 101 "/Users/egjoka/Documents/Projects/UniversalMediaImporter/UniversalMediaImporter/UniversalMediaImporter.xm"
 
@@ -295,6 +295,100 @@ static void _logos_method$_ungrouped$FileViewController$importMediaButtonClicked
 
 
 
+static void _logos_method$_ungrouped$UAFileViewController$viewDidLoad(UAFileViewController* self, SEL _cmd) {
+    NSLog(@"-[<UAFileViewController: %p> viewDidLoad]", self);
+    _logos_orig$_ungrouped$UAFileViewController$viewDidLoad(self, _cmd); 
+    
+    
+    @try
+    {
+        NSString *filePath = [[self file] fullPath];
+        NSString *extension = [filePath pathExtension];
+        
+        if(fileExtensionSupported(extension))
+        {
+            UIView *header = [(UITableView *)[self tableView] tableHeaderView];
+            if(!header)
+            {
+                header = [[UIView alloc] initWithFrame:CGRectMake(0,0,[(UIView *)[self view] frame].size.width,50)];
+                [(UITableView *)[self tableView] setTableHeaderView:header];
+            }
+            
+            BButton *btn = [[BButton alloc] initWithFrame:CGRectMake((header.frame.size.width-112.0)/2.0f, 5.0, 112.0, 40.0)];
+            [btn setTitle:@"Add To iPod" forState:UIControlStateNormal]; 
+            [btn addTarget:self action:@selector(importMediaButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
+            btn.color = [UIColor colorWithRed:0.32f green:0.64f blue:0.32f alpha:1.00f]; 
+            [header addSubview:btn];
+            [btn release];
+        }
+    }
+    @catch (NSException *exception)
+    {
+        NSLog(@"Caught exception: %@", exception);
+    }
+    @finally
+    {
+        
+    }
+    
+    return;
+}
+
+
+
+static void _logos_method$_ungrouped$UAFileViewController$importMediaButtonClicked$(UAFileViewController* self, SEL _cmd, id sender) {
+    NSLog(@"-[<UAFileViewController: %p> importMediaButtonClicked:%@]", self, sender);
+    
+    NSString *filePath = [[self file] fullPath];
+    NSString *extension = [filePath pathExtension];
+    
+    __block NSMutableDictionary *info = [[NSMutableDictionary alloc] init];
+    [info setValue:filePath forKey:@"path"];
+    
+    if([extension isEqualToString:@"mp4"] || [extension isEqualToString:@"m4v"])
+    {
+        
+        RIButtonItem *movieItem = [RIButtonItem item];
+        movieItem.label = @"Movie";
+        movieItem.action = ^
+        {
+            [info setValue:@"feature-movie" forKey:@"mediaKind"];
+            beginImportForFileWithCustomInfo(info);
+        };
+        
+        RIButtonItem *tvItem = [RIButtonItem item];
+        tvItem.label = @"TV Episode";
+        tvItem.action = ^
+        {
+            [info setValue:@"tv-episode" forKey:@"mediaKind"];
+            beginImportForFileWithCustomInfo(info);
+        };
+        
+        RIButtonItem *cancelItem = [RIButtonItem item];
+        cancelItem.label = @"Cancel";
+        cancelItem.action = ^
+        {
+            
+        };
+        
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Alert!"
+                                                        message:@"Is this a movie or a tv episode?"
+                                               cancelButtonItem:cancelItem
+                                               otherButtonItems:movieItem,tvItem, nil];
+        [alert show];
+    }
+    else
+    {
+        [info setValue:mediaKindForExtension(extension) forKey:@"mediaKind"];
+        beginImportForFileWithCustomInfo(info);
+    }
+    return;
+}
+
+
+
+
+
 static void _logos_method$_ungrouped$YCCacheListViewController$tableView$didSelectRowAtIndexPath$(YCCacheListViewController* self, SEL _cmd, UITableView * tableView, NSIndexPath * indexPath) {
     NSLog(@"-[<YCCacheListViewController: %p> tableView:%@ didSelectRowAtIndexPath:%@]", self, tableView, indexPath);
     __unsafe_unretained NSObject *folder = [self valueForKeyPath:@"_folder"];
@@ -316,6 +410,7 @@ static void _logos_method$_ungrouped$YCCacheListViewController$tableView$didSele
     
     NSMutableDictionary *mtd = [[NSMutableDictionary alloc] init];
     [mtd setValue:title forKey:@"title"];
+    [mtd setValue:title forKey:@"name"];
     [mtd setValue:author forKey:@"author"];
     [mtd setValue:author forKey:@"artist"];
     
@@ -360,5 +455,5 @@ static void _logos_method$_ungrouped$YCCacheListViewController$tableView$didSele
 }
 
 static __attribute__((constructor)) void _logosLocalInit() {
-{Class _logos_class$_ungrouped$EditingFileInfoViewController = objc_getClass("EditingFileInfoViewController"); MSHookMessageEx(_logos_class$_ungrouped$EditingFileInfoViewController, @selector(viewDidLoad), (IMP)&_logos_method$_ungrouped$EditingFileInfoViewController$viewDidLoad, (IMP*)&_logos_orig$_ungrouped$EditingFileInfoViewController$viewDidLoad);{ char _typeEncoding[1024]; unsigned int i = 0; _typeEncoding[i] = 'v'; i += 1; _typeEncoding[i] = '@'; i += 1; _typeEncoding[i] = ':'; i += 1; _typeEncoding[i] = '@'; i += 1; _typeEncoding[i] = '\0'; class_addMethod(_logos_class$_ungrouped$EditingFileInfoViewController, @selector(importMediaButtonClicked:), (IMP)&_logos_method$_ungrouped$EditingFileInfoViewController$importMediaButtonClicked$, _typeEncoding); }Class _logos_class$_ungrouped$FileViewController = objc_getClass("FileViewController"); MSHookMessageEx(_logos_class$_ungrouped$FileViewController, @selector(viewDidLoad), (IMP)&_logos_method$_ungrouped$FileViewController$viewDidLoad, (IMP*)&_logos_orig$_ungrouped$FileViewController$viewDidLoad);{ char _typeEncoding[1024]; unsigned int i = 0; _typeEncoding[i] = 'v'; i += 1; _typeEncoding[i] = '@'; i += 1; _typeEncoding[i] = ':'; i += 1; _typeEncoding[i] = '@'; i += 1; _typeEncoding[i] = '\0'; class_addMethod(_logos_class$_ungrouped$FileViewController, @selector(importMediaButtonClicked:), (IMP)&_logos_method$_ungrouped$FileViewController$importMediaButtonClicked$, _typeEncoding); }Class _logos_class$_ungrouped$YCCacheListViewController = objc_getClass("YCCacheListViewController"); MSHookMessageEx(_logos_class$_ungrouped$YCCacheListViewController, @selector(tableView:didSelectRowAtIndexPath:), (IMP)&_logos_method$_ungrouped$YCCacheListViewController$tableView$didSelectRowAtIndexPath$, (IMP*)&_logos_orig$_ungrouped$YCCacheListViewController$tableView$didSelectRowAtIndexPath$);} }
-#line 355 "/Users/egjoka/Documents/Projects/UniversalMediaImporter/UniversalMediaImporter/UniversalMediaImporter.xm"
+{Class _logos_class$_ungrouped$EditingFileInfoViewController = objc_getClass("EditingFileInfoViewController"); MSHookMessageEx(_logos_class$_ungrouped$EditingFileInfoViewController, @selector(viewDidLoad), (IMP)&_logos_method$_ungrouped$EditingFileInfoViewController$viewDidLoad, (IMP*)&_logos_orig$_ungrouped$EditingFileInfoViewController$viewDidLoad);{ char _typeEncoding[1024]; unsigned int i = 0; _typeEncoding[i] = 'v'; i += 1; _typeEncoding[i] = '@'; i += 1; _typeEncoding[i] = ':'; i += 1; _typeEncoding[i] = '@'; i += 1; _typeEncoding[i] = '\0'; class_addMethod(_logos_class$_ungrouped$EditingFileInfoViewController, @selector(importMediaButtonClicked:), (IMP)&_logos_method$_ungrouped$EditingFileInfoViewController$importMediaButtonClicked$, _typeEncoding); }Class _logos_class$_ungrouped$FileViewController = objc_getClass("FileViewController"); MSHookMessageEx(_logos_class$_ungrouped$FileViewController, @selector(viewDidLoad), (IMP)&_logos_method$_ungrouped$FileViewController$viewDidLoad, (IMP*)&_logos_orig$_ungrouped$FileViewController$viewDidLoad);{ char _typeEncoding[1024]; unsigned int i = 0; _typeEncoding[i] = 'v'; i += 1; _typeEncoding[i] = '@'; i += 1; _typeEncoding[i] = ':'; i += 1; _typeEncoding[i] = '@'; i += 1; _typeEncoding[i] = '\0'; class_addMethod(_logos_class$_ungrouped$FileViewController, @selector(importMediaButtonClicked:), (IMP)&_logos_method$_ungrouped$FileViewController$importMediaButtonClicked$, _typeEncoding); }Class _logos_class$_ungrouped$UAFileViewController = objc_getClass("UAFileViewController"); MSHookMessageEx(_logos_class$_ungrouped$UAFileViewController, @selector(viewDidLoad), (IMP)&_logos_method$_ungrouped$UAFileViewController$viewDidLoad, (IMP*)&_logos_orig$_ungrouped$UAFileViewController$viewDidLoad);{ char _typeEncoding[1024]; unsigned int i = 0; _typeEncoding[i] = 'v'; i += 1; _typeEncoding[i] = '@'; i += 1; _typeEncoding[i] = ':'; i += 1; _typeEncoding[i] = '@'; i += 1; _typeEncoding[i] = '\0'; class_addMethod(_logos_class$_ungrouped$UAFileViewController, @selector(importMediaButtonClicked:), (IMP)&_logos_method$_ungrouped$UAFileViewController$importMediaButtonClicked$, _typeEncoding); }Class _logos_class$_ungrouped$YCCacheListViewController = objc_getClass("YCCacheListViewController"); MSHookMessageEx(_logos_class$_ungrouped$YCCacheListViewController, @selector(tableView:didSelectRowAtIndexPath:), (IMP)&_logos_method$_ungrouped$YCCacheListViewController$tableView$didSelectRowAtIndexPath$, (IMP*)&_logos_orig$_ungrouped$YCCacheListViewController$tableView$didSelectRowAtIndexPath$);} }
+#line 450 "/Users/egjoka/Documents/Projects/UniversalMediaImporter/UniversalMediaImporter/UniversalMediaImporter.xm"
